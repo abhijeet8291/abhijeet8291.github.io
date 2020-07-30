@@ -35,23 +35,21 @@ for (var i = 0; i < products.length; i++) {
 
   newProduct = new s.oProduct(products[i].id);
 
-  if(typeof products[i].badge != “undefined”){
+  
 
-        newProduct.add(‘eVar4’,products[i].badge);
+        newProduct.add(‘eVar10’,products[i].badge);
 
-  }
+  
 
-  if(typeof products[i].ratingAvg != “undefined”){
 
-        newProduct.add(‘evar5’,products[i].ratingAvg);
+        newProduct.add(‘evar11’,products[i].ratingAvg);
 
-  }
+  
 
-  if(typeof products[i].ratingCount != “undefined”){
 
-        newProduct.add(‘evar6’,products[i].ratingCount);  
+        newProduct.add(‘evar12’,products[i].ratingCount);  
 
-  }
+  
 
   productArray.push(newProduct);
 
