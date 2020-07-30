@@ -4,7 +4,7 @@
     <head>
 	    <script src="//assets.adobedtm.com/e72b4113c11a/44dbb5c3ca0f/launch-da13d48206d8-development.min.js" async></script>
 		<script>
-		dataLayer = {
+		var dataLayer = {
 	"core": {
 		"language": "en",
 		"currencyCode": "en"
@@ -26,9 +26,10 @@
 		}
 	}
 }
+var products = dataLayer.ecommerce.detail.product;
 productArray = [];
 
-products = _satellite.getVar(“products”);
+
 
 for (var i = 0; i < products.length; i++) {
 
@@ -58,7 +59,7 @@ for (var i = 0; i < products.length; i++) {
 
 s.products = s.buildProducts(productArray);
 
-		var s.products = "Example category 1;Example product 1;1;3.50,Example category 2;Example product 2,1,5.99";
+		//var s.products = "Example category 1;Example product 1;1;3.50,Example category 2;Example product 2,1,5.99";
 		 var pageName = 'product-details';
          var productId =1233;
 		 var productName ='Diamond nacklace';
