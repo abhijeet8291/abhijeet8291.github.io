@@ -1,0 +1,26 @@
+ <container label="status">
+
+    <input xpath="@recordStatus"/>
+    <input xpath="broadLog/delivery/@label"/>
+    <input xpath="@customerId"/>
+    
+  </container>
+
+  <container label="Deliveries">
+   
+   
+    <input type="list" xpath="broadLogAppSubRcp">
+    <input xpath="delivery/@label"/>
+    <input xpath="delivery/@internalName"/>
+    <input xpath="delivery/@lastModified"/>
+    <input xpath="delivery/desc"/>
+    <input xpath="delivery/@created"/>
+    <input xpath="delivery/@deliveryMode"/>
+    </input>
+    <input type="list" xpath="broadLog">
+      <input xpath="delivery/@label"/>
+      <input xpath="delivery/@internalName"/>
+      <input xpath="delivery/@state"/>
+     </input>
+    
+  </container>
