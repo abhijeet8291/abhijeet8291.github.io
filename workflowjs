@@ -1,0 +1,56 @@
+var sql = "SELECT wkf.sInternalName, wkf.sLabel, wkf.iState, wkf.tsLastStart, wkf.mData  FROM XtkWorkflow wkf where wkf.tsLastStart >= NOW() - INTERVAL '24 HOURS'";
+
+var sqlRes = sqlSelect("resSQLResult,@sInternalName:string,@sLabel:string,@iState:string,@tsLastStart:datetime,@mData:memo", sql);
+
+
+
+vars.tblStrucWKF = '<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="1"  WIDTH="550"><TR bgcolor="#C0C0C0"><TH>Workflow Internal Name</TH><TH>Workflow Label</TH><TH>Workflow Status</TH><TH>Last Start datetime</TH><TH> data</TH>';
+
+
+
+for each (var resSQLResult in sqlRes) {
+
+if( resSQLResult.@iState=='20'){
+resSQLResult.@iState = 'Finished'
+}
+else if( resSQLResult.@iState=='0'){
+resSQLResult.@iState = 'Being edited'
+}
+else if( resSQLResult.@iState=='12'){
+resSQLResult.@iState = 'Pause Requested'
+}
+else if( resSQLResult.@iState=='13'){
+resSQLResult.@iState = 'Paused'
+}
+else if( resSQLResult.@iState=='9'){
+resSQLResult.@iState = 'Request to start in simulation mode'
+}
+else if( resSQLResult.@iState=='17'){
+resSQLResult.@iState = 'Restart requested'
+}
+else if( resSQLResult.@iState=='18'){
+resSQLResult.@iState = 'Restarting'
+}
+else if( resSQLResult.@iState=='14'){
+resSQLResult.@iState = 'Resume requested'
+}
+else if( resSQLResult.@iState=='10'){
+resSQLResult.@iState = 'Start requested'
+}
+else if( resSQLResult.@iState=='11'){
+resSQLResult.@iState = 'Started'
+}
+else if( resSQLResult.@iState=='16'){
+resSQLResult.@iState = 'Stop in progress'
+}
+else if( resSQLResult.@iState=='15'){
+resSQLResult.@iState = 'Stop requested'
+}
+  vars.tblStrucWKF += "<TR  style='text-align:center'><TD>"+resSQLResult.@sInternalName+"</TD><TD>"+resSQLResult.@sLabel+"</TD><TD>"+resSQLResult.@iState+"</TD><TD>"+resSQLResult.@tsLastStart+"</TD><TD>"+resSQLResult.@mData+"</TD></TR>";
+
+}
+
+
+
+vars.tblStrucWKF += "</TABLE>";
+
