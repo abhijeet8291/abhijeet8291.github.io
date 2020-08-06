@@ -12,6 +12,7 @@
 				"quantity": 1,
 				"price": 6000
 			};
+			document.location='cart.html';
 		}
         var host = window.location.host;
 		var path = window.location.pathname;
@@ -42,7 +43,8 @@
 			}]
 		}
 	}
-}
+};
+sessionStorage.setItem("dataLayer", JSON.stringify(dataLayer));
 var products = dataLayer.ecommerce.detail.product;
 productArray = [];
 
@@ -586,7 +588,7 @@ s.products = s.buildProducts(productArray);
                                         <div class="quick-add-to-cart">
 											
 												
-												<button class="btn btn-lg btn-success" onclick="document.location='cart.html'"><span class="lnr lnr-cart"></span>Add to Cart</button>
+												<button class="btn btn-lg btn-success" onclick="addToCart()"><span class="lnr lnr-cart"></span>Add to Cart</button>
                                                 
                                                 <!-- <button data-toggle="modal" data-target="#myModal" class="single_add_to_cart_button hyper-page" type="button"><span class="lnr lnr-cart"></span>Bulk Order</button> -->
 											
